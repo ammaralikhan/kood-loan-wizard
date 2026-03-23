@@ -1,28 +1,44 @@
 /**
- * Centralized application state - Single Source of Truth
+ * Centralized application state
+ * Only this file should read/write appState directly
  */
 
 const appState = {
   currentStep: 1,
-  employment: null,
-  income: null,
-  loanAmount: null,
-  loanPeriod: null,
-  interestRate: null,
-  monthlyPayment: null,
-  consents: [],
-  additionalInfo: ''
+  // Step 1
+  employment: null, // 'employed' | 'self-employed' | 'unemployed'
+  // Step 2
+  income: null,     // '<1000' | '1000-2000' | '>2000'
+  loanAmount: null, // number
+  loanPeriod: null, // 12 | 24 | 36
+  interestRate: null, // number (annual %)
+  monthlyPayment: null, // calculated
+  // Step 3
+  consents: [],     // array of accepted consent IDs
+  // Step 4
+  additionalInfo: '' // string, min 10 chars
 };
 
+// Safe getter
 function getAppState(key) {
   return key ? appState[key] : { ...appState };
 }
 
+// Safe setter (FIXED)
 function updateState(updates) {
+  // Only dispatch event if state actually changed
+  const prevState = { ...appState };
   Object.assign(appState, updates);
-  window.dispatchEvent(new CustomEvent('stateChange', { detail: { updates } }));
+  
+  // Check if state changed before dispatching
+  if (JSON.stringify(prevState) !== JSON.stringify(appState)) {
+    window.dispatchEvent(new CustomEvent('stateChange', { 
+      detail: { updates } 
+    }));
+  }
 }
 
+// Reset for testing
 function resetState() {
   Object.assign(appState, {
     currentStep: 1,
@@ -37,4 +53,5 @@ function resetState() {
   });
 }
 
+// Expose only what's needed
 window.Store = { getAppState, updateState, resetState };

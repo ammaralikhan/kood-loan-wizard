@@ -1,6 +1,6 @@
-# 💰 Loan Application Wizard — Kood Job Fare Challenge
+# 💰 Loan Application Wizard — Kood Job Fair Challenge
 
-> Built with ❤️ for the Kood Job Fare | Deadline: March 24, 2026
+> Built with ❤️ for the Kood Job Fair | Deadline: March 24, 2026
 
 ## 🎯 Project Goal
 A clean, Swedbank-style multi-step loan calculator built with **vanilla HTML, CSS, and JavaScript** (no frameworks).
@@ -29,7 +29,7 @@ Source: [Wikipedia — Amortization Formula](https://en.wikipedia.org/wiki/Amort
 |------|------|------------|--------|
 | Ammar Ali Khan | Lead / Architect | Navigation, State, Git | ✅ Confirmed |
 | [Member 2] | UI/UX | Forms, CSS, Accessibility | ⏳ Awaiting confirmation |
-| [Member 3] | Logic | Calculator, Validation | ⏳ Awaiting confirmation |
+| Kadri Ivanson | Logic | Calculator, Validation | ✅ Confirmed |
 | [Member 4] | QA/Docs | Testing, README, ZIP | ⏳ Awaiting confirmation |
 
 *Team members: Edit this table with your names once you join!*

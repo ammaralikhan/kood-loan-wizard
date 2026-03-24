@@ -35,3 +35,4 @@ Calculator.test = function() {
   console.log('🧪 €1000 @ 5% for 12mo:', calculateMonthlyPayment(1000, 5, 12));
   console.log('🧪 €5000 @ 3.5% for 24mo:', calculateMonthlyPayment(5000, 3.5, 24));
 };
+

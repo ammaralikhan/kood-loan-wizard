@@ -46,3 +46,50 @@ const Validators = {
 };
 
 window.Validators = Validators;
+
+
+function validateStep1() {
+  const employment = Store.getAppState('employment');
+  return Validators.employment(employment);
+}
+
+function validateStep2() {
+  const income = Store.getAppState('income');
+  const loanAmount = Store.getAppState('loanAmount');
+  const loanPeriod = Store.getAppState('loanPeriod');
+  const interestRate = Store.getAppState('interestRate');
+
+  const incomeCheck = Validators.required(income, 'Income');
+  const loanAmountCheck = Validators.loanAmount(loanAmount);
+  const loanPeriodCheck = Validators.required(loanPeriod, 'Loan period');
+  const interestRateCheck = Validators.required(interestRate, 'Interest rate');
+
+  if (!incomeCheck.isValid) return incomeCheck;
+  if (!loanAmountCheck.isValid) return loanAmountCheck;
+  if (!loanPeriodCheck.isValid) return loanPeriodCheck;
+  if (!interestRateCheck.isValid) return interestRateCheck;
+
+  return { isValid: true, error: null };
+}
+
+function validateStep3() {
+  const consents = Store.getAppState('consents');
+  return Validators.consentChecked(consents);
+}
+
+function validateStep4() {
+  const additionalInfo = Store.getAppState('additionalInfo');
+  return Validators.minLength(additionalInfo, 10, 'Additional info');
+}
+
+function validateStep(stepNumber) {
+  switch (stepNumber) {
+    case 1: return validateStep1();
+    case 2: return validateStep2();
+    case 3: return validateStep3();
+    case 4: return validateStep4();
+    default: return { isValid: false, error: 'Unknown step' };
+  }
+}
+
+window.Validation = { validateStep };

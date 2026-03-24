@@ -7,33 +7,47 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <div class="container">
-    <!-- Progress Tracker -->
-    <div class="progress" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4">
-      <div class="progress-step active" data-step="1">1</div>
-      <div class="progress-step" data-step="2">2</div>
-      <div class="progress-step" data-step="3">3</div>
-      <div class="progress-step" data-step="4">4</div>
+    <!-- Intro Screen -->
+    <div id="intro-screen" class="intro-screen">
+        <div class="container">
+            <h1>Loan Application</h1>
+            <p>Calculate your monthly payment and apply for a loan in minutes.</p>
+            <button id="start-btn" class="btn btn-primary">Start Application</button>
+        </div>
+    </div>
+    
+    <!-- Wizard Container (CRITICAL FIX: Added ID for visibility control) -->
+    <div id="wizard-container" class="container">
+        <!-- Progress Tracker -->
+        <div class="progress" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4">
+            <div class="progress-step active" data-step="1">1</div>
+            <div class="progress-step" data-step="2">2</div>
+            <div class="progress-step" data-step="3">3</div>
+            <div class="progress-step" data-step="4">4</div>
+        </div>
+
+        <!-- Dynamic Step Container -->
+        <main id="step-container" aria-live="polite">
+        <!-- Steps injected here by main.js -->
+        </main>
+
+        <!-- Navigation -->
+        <nav class="wizard-nav">
+            <button id="back-btn" type="button" class="btn btn-secondary" disabled>Back</button>
+            <button id="next-btn" type="button" class="btn btn-primary">Next</button>
+            <button id="submit-btn" type="button" class="btn btn-success" style="display:none">Submit Application</button>
+        </nav>
     </div>
 
-    <!-- Dynamic Step Container -->
-    <main id="step-container" aria-live="polite">
-      <!-- Steps injected here by main.js -->
-    </main>
-
-    <!-- Navigation -->
-    <nav class="wizard-nav">
-      <button id="back-btn" type="button" class="btn btn-secondary" disabled>Back</button>
-      <button id="next-btn" type="button" class="btn btn-primary">Next</button>
-      <button id="submit-btn" type="button" class="btn btn-success" style="display:none">Submit Application</button>
-    </nav>
-  </div>
-
-  <!-- Load JS in order -->
-  <script src="js/store.js"></script>
-  <script src="js/calculator.js"></script>
-  <script src="js/validation.js"></script>
-  <script src="js/steps/step1.js"></script>
-  <script src="js/main.js"></script>
+    <!-- Load JS in strict dependency order -->
+    <script src="js/store.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/steps/step1.js"></script>
+    <script src="js/steps/step2.js"></script>
+    <script src="js/steps/step3.js"></script>
+    <script src="js/steps/step4.js"></script>
+    <script src="js/steps/summary.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

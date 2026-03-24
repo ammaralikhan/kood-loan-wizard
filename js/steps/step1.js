@@ -49,7 +49,7 @@ window.Step1 = {
     radioButtons.forEach(radio => {
       radio.addEventListener('change', (e) => {
         window.Store.updateState({ employment: e.target.value });
-        Step1.validate();
+        this.validate();  // CRITICAL FIX: Use 'this' instead of 'Step1'
       });
     });
     
@@ -58,5 +58,3 @@ window.Step1 = {
   }
 };
 
-// Register step with main.js
-window.Step1 = Step1;

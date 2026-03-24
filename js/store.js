@@ -4,7 +4,7 @@
  */
 
 const appState = {
-  currentStep: 1,
+  currentStep: 0,  // CRITICAL FIX: 0 = intro screen state (was 1)
   // Step 1
   employment: null, // 'employed' | 'self-employed' | 'unemployed'
   // Step 2
@@ -16,7 +16,8 @@ const appState = {
   // Step 3
   consents: [],     // array of accepted consent IDs
   // Step 4
-  additionalInfo: '' // string, min 10 chars
+  additionalInfo: '', // string, min 10 chars
+  loanPurpose: null
 };
 
 // Safe getter
@@ -41,7 +42,7 @@ function updateState(updates) {
 // Reset for testing
 function resetState() {
   Object.assign(appState, {
-    currentStep: 1,
+    currentStep: 0,  // CRITICAL FIX: Reset to intro screen
     employment: null,
     income: null,
     loanAmount: null,
@@ -49,7 +50,8 @@ function resetState() {
     interestRate: null,
     monthlyPayment: null,
     consents: [],
-    additionalInfo: ''
+    additionalInfo: '',
+    loanPurpose: null
   });
 }
 

@@ -28,11 +28,10 @@ Source: [Wikipedia — Amortization Formula](https://en.wikipedia.org/wiki/Amort
 | Name | Role | Focus Area | Status |
 |------|------|------------|--------|
 | Ammar Ali Khan | Lead / Architect | Navigation, State, Git | ✅ Confirmed |
-| [Member 2] | UI/UX | Forms, CSS, Accessibility | ⏳ Awaiting confirmation |
+| Anastasiia Krugilova | UI/UX | Forms, CSS, Accessibility | ✅ Confirmed |
 | Kadri Ivanson | Logic | Calculator, Validation | ✅ Confirmed |
-| [Member 4] | QA/Docs | Testing, README, ZIP | ⏳ Awaiting confirmation |
+| August Vinter | QA/Docs | Testing, README, ZIP | ✅ Confirmed|
 
-*Team members: Edit this table with your names once you join!*
 
 ## ✅ Features
 - [x] Works in Chrome, Safari & Firefox 
